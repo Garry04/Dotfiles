@@ -1,9 +1,9 @@
 pacman -S git stow
 
-https://github.com/Garry04/dotfiles.git
+git clone https://github.com/Garry04/dotfiles.git
 cd dotfiles
 
-## Use gnu stow to create symlinks ##
+## Use gnu stow to create symlinks 
 
 stow .
 
