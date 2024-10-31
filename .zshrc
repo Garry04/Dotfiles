@@ -138,13 +138,14 @@ alias mirrors="sudo reflector --verbose --latest 5 --country 'United States' --a
 alias update="paru -Syu --nocombinedupgrade"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-alias git-update="git add . | git commit -m "update" | git push -u origin main"
+alias git-update='git add . && git commit -m "update" && git push -u origin main'
 
 alias music="ncmpcpp"
 
 alias cat="bat --theme=base16"
 alias ls='eza --icons=always --color=always -a'
 alias ll='eza --icons=always --color=always -la'
+alias lf='eza --icons=always --color=always -la'
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │
