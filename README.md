@@ -5,6 +5,6 @@ cd dotfiles
 
 ## Use gnu stow to create symlinks 
 
-$stow .
+stow .
 
 incase forgor: https://www.youtube.com/watch?v=y6XCebnB9gs
