@@ -145,7 +145,7 @@ alias music="ncmpcpp"
 alias cat="bat --theme=base16"
 alias ls='eza --icons=always --color=always -a'
 alias ll='eza --icons=always --color=always -la'
-alias lf='eza --icons=always --color=always -la'
+alias lf='eza --icons=always --color=always -f'
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │
