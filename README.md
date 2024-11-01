@@ -8,3 +8,7 @@ cd dotfiles
 stow .
 
 incase forgor: https://www.youtube.com/watch?v=y6XCebnB9gs
+git clone https://github.com/Zerschranzer/arch-gaming-setup.git
+cd arch-gaming-setup
+chmod +x arch-gaming-setup.sh
+./arch-gaming-setup.sh
