@@ -113,6 +113,36 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[[3~' delete-char
 
+######################
+## AUTO LS AFTER CD ##
+######################
+
+function cdls() {
+	chdir $@
+    eza --group-directories-first --icons=always
+}
+alias cd='cdls'
+
+##############################
+## same shit but for zoxide ##
+##############################
+
+function cdls() {
+	chdir $@
+    eza --group-directories-first --icons=always
+}
+alias cd='cdls'
+
+
+#########################
+## AUTO CD AFTER MKDIR ##
+#########################
+
+function mkcd() {
+	mkdir $1
+	cd $1
+}
+
 #  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬  ┌─┐  ┌┬┐┬┌┬┐┬  ┌─┐
 #  │  ├─┤├─┤││││ ┬├┤    │ ├┤ ├┬┘│││││││├─┤│  └─┐   │ │ │ │  ├┤
 #  └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘└─┘   ┴ ┴ ┴ ┴─┘└─┘
@@ -136,15 +166,22 @@ fi
 #  ┴ ┴┴─┘┴┴ ┴└─┘
 alias mirrors="sudo reflector --verbose --latest 5 --country 'United States' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
 alias update="paru -Syu --nocombinedupgrade"
-alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias pac="sudo pacman -S"
+alias fixsudo="faillock --user garry --reset"
+
+alias anim="ani-cli"
+
+# Get the error messages from journalctl
+alias journal="journalctl -p 3 -xb"
+
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 alias git-update='git add . && git commit -m "update" && git push -u origin main'
-
-alias music="ncmpcpp"
-
 alias cat="bat --theme=base16"
-alias ls='eza --icons=always --color=always -a'
-alias ll='eza --icons=always --color=always -la'
+alias ls='eza --group-directories-first --icons=always --color=always -a'
+alias ll='eza --group-directories-first --icons=always --color=always -la'
 alias lf='eza --icons=always --color=always -f'
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
