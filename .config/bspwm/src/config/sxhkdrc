@@ -27,6 +27,10 @@ super + r
 
 super + e
 	nemo
+
+super + shift + l
+	bash /home/garry/run_cam.sh
+
 #####
 
 # Apps (browser, editor, filemanager)
