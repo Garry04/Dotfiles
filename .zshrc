@@ -47,6 +47,24 @@ zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
+
+
+zshcache_time="$(date +%s%N)"
+
+autoload -Uz add-zsh-hook
+
+rehash_precmd() {
+  if [[ -a /var/cache/zsh/pacman ]]; then
+    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+    if (( zshcache_time < paccache_time )); then
+      rehash
+      zshcache_time="$paccache_time"
+    fi
+  fi
+}
+
+add-zsh-hook -Uz precmd rehash_precmd
+
 #  ┬ ┬┌─┐┬┌┬┐┬┌┐┌┌─┐  ┌┬┐┌─┐┌┬┐┌─┐
 #  │││├─┤│ │ │││││ ┬   │││ │ │ └─┐
 #  └┴┘┴ ┴┴ ┴ ┴┘└┘└─┘  ─┴┘└─┘ ┴ └─┘
@@ -164,11 +182,13 @@ fi
 #  ┌─┐┬  ┬┌─┐┌─┐
 #  ├─┤│  │├─┤└─┐
 #  ┴ ┴┴─┘┴┴ ┴└─┘
-alias mirrors="sudo reflector --verbose --latest 5 --country 'United States' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
-alias update="paru -Syu --nocombinedupgrade"
+alias mirrors="sudo reflector --verbose --latest 5 --country 'Norway' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias pac="sudo pacman -S"
 alias fixsudo="faillock --user garry --reset"
+alias psp="ps aux | fzf -e --preview 'echo {}' --preview-window=wrap | awk '{print $2}' | xargs -r kill -9"
+#show optional dependices
+alias paci="sudo pacman -Qi"
 
 alias anim="ani-cli"
 
@@ -189,4 +209,4 @@ alias lf='eza --icons=always --color=always -f'
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴
 #$HOME/.local/bin/colorscript -r
 eval "$(zoxide init zsh)"
-
+pfetch
