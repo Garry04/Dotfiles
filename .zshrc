@@ -189,7 +189,7 @@ alias fixsudo="faillock --user garry --reset"
 alias psp="ps aux | fzf -e --preview 'echo {}' --preview-window=wrap | awk '{print $2}' | xargs -r kill -9"
 #show optional dependices
 alias paci="sudo pacman -Qi"
-
+alias convert="magick"
 alias anim="ani-cli"
 
 # Get the error messages from journalctl
