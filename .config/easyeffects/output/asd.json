@@ -14,7 +14,7 @@
                     "q": 0.7,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Bell",
+                    "type": "Off",
                     "width": 4.0
                 },
                 "band1": {
@@ -338,7 +338,7 @@
                 },
                 "band8": {
                     "frequency": 8300.0,
-                    "gain": -9.04,
+                    "gain": -7.08,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 7.0,
@@ -373,7 +373,7 @@
                     "q": 0.7,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Bell",
+                    "type": "Off",
                     "width": 4.0
                 },
                 "band1": {
@@ -697,7 +697,7 @@
                 },
                 "band8": {
                     "frequency": 8300.0,
-                    "gain": -9.04,
+                    "gain": -7.08,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 7.0,
